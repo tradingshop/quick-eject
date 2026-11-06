@@ -38,9 +38,9 @@ This creates `Quick Eject.app`. To compile only the executable:
 swiftc -O -framework AppKit QuickEject.swift -o QuickEject
 ```
 
-### Install and launch
+### Download, install, and launch
 
-Copy `Quick Eject.app` to `/Applications` and open it. To launch at login, add the app under **System Settings → General → Login Items**.
+[Download the compiled macOS app](https://github.com/tradingshop/quick-eject/raw/refs/heads/main/dist/Quick-Eject-macOS.zip) and unzip it. Copy `Quick Eject.app` to `/Applications` and open it. To launch at login, add the app under **System Settings → General → Login Items**.
 
 ### Safety and privacy
 
@@ -90,9 +90,9 @@ make build
 swiftc -O -framework AppKit QuickEject.swift -o QuickEject
 ```
 
-### Установка и запуск
+### Скачать, установить и запустить
 
-Скопируйте `Quick Eject.app` в `/Applications` и откройте его. Чтобы приложение запускалось при входе в систему, добавьте его в **Системные настройки → Основные → Объекты входа**.
+[Скачайте скомпилированное приложение для macOS](https://github.com/tradingshop/quick-eject/raw/refs/heads/main/dist/Quick-Eject-macOS.zip) и распакуйте архив. Скопируйте `Quick Eject.app` в `/Applications` и откройте его. Чтобы приложение запускалось при входе в систему, добавьте его в **Системные настройки → Основные → Объекты входа**.
 
 ### Безопасность и конфиденциальность
 
