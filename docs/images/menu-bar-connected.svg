@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Quick Eject icon when an external disk is connected</title>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="#33383f"/>
+  <path d="M64 31 28 76h72L64 31Z" fill="#ffad33"/>
+  <rect x="28" y="86" width="72" height="13" rx="6.5" fill="#ffad33"/>
+</svg>

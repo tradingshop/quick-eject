@@ -6,7 +6,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
-        statusItem = NSStatusBar.system.statusItem(withLength: 24)
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         if let button = statusItem.button {
             button.imagePosition = .imageOnly
             button.imageScaling = .scaleProportionallyUpOrDown
@@ -41,20 +41,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let glyphColor = hasExternalDisks
             ? NSColor(calibratedRed: 1.0, green: 0.68, blue: 0.20, alpha: 1.0)
             : NSColor(calibratedRed: 0.83, green: 0.86, blue: 0.90, alpha: 1.0)
-        let icon = NSImage(size: NSSize(width: 24, height: 22), flipped: false) { rect in
-            let background = NSBezierPath(roundedRect: NSRect(x: 1.5, y: 1.0, width: 21, height: 20), xRadius: 5, yRadius: 5)
+        let icon = NSImage(size: NSSize(width: 22, height: 22), flipped: false) { rect in
+            let background = NSBezierPath(roundedRect: NSRect(x: 1.0, y: 1.0, width: 20, height: 20), xRadius: 5, yRadius: 5)
             NSColor(calibratedRed: 0.20, green: 0.22, blue: 0.25, alpha: 1.0).setFill()
             background.fill()
 
             let triangle = NSBezierPath()
-            triangle.move(to: NSPoint(x: 12, y: 16.5))
-            triangle.line(to: NSPoint(x: 5.2, y: 8.2))
-            triangle.line(to: NSPoint(x: 18.8, y: 8.2))
+            triangle.move(to: NSPoint(x: 11, y: 17))
+            triangle.line(to: NSPoint(x: 4.2, y: 8.2))
+            triangle.line(to: NSPoint(x: 17.8, y: 8.2))
             triangle.close()
             glyphColor.setFill()
             triangle.fill()
 
-            let bar = NSBezierPath(roundedRect: NSRect(x: 5.0, y: 4.0, width: 14.0, height: 2.5), xRadius: 1.0, yRadius: 1.0)
+            let bar = NSBezierPath(roundedRect: NSRect(x: 4.0, y: 4.0, width: 14.0, height: 2.5), xRadius: 1.0, yRadius: 1.0)
             glyphColor.setFill()
             bar.fill()
             return true
