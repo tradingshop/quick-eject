@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">Quick Eject menu bar icon states</title>
+  <desc id="desc">The Quick Eject menu bar button with amber eject mark when an external disk is connected and a light gray mark when no external disks are connected.</desc>
+  <defs>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#e8ebef" stop-opacity=".96"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#17212b" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="960" height="360" rx="28" fill="#f4f6f8"/>
+  <text x="480" y="51" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="24" font-weight="700" fill="#202832">Quick Eject · значок в строке меню / menu bar icon</text>
+
+  <g filter="url(#shadow)">
+    <rect x="40" y="82" width="420" height="224" rx="20" fill="#fff"/>
+    <rect x="500" y="82" width="420" height="224" rx="20" fill="#fff"/>
+  </g>
+  <text x="250" y="119" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" font-weight="650" fill="#303943">Внешний диск подключён / External disk connected</text>
+  <text x="710" y="119" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" font-weight="650" fill="#303943">Нет внешних дисков / No external disks</text>
+
+  <g>
+    <rect x="58" y="140" width="384" height="104" rx="14" fill="url(#bar)" stroke="#d8dde3"/>
+    <circle cx="88" cy="192" r="5" fill="#b8c0c9"/><circle cx="106" cy="192" r="5" fill="#b8c0c9"/><circle cx="124" cy="192" r="5" fill="#b8c0c9"/>
+    <rect x="388" y="153" width="38" height="78" rx="11" fill="#dce1e7"/>
+    <rect x="395" y="162" width="24" height="60" rx="6" fill="#20242a"/>
+    <path d="M407 171 L399.5 181 H414.5 Z" fill="#ffad33"/>
+    <rect x="399.5" y="184" width="15" height="3.2" rx="1.5" fill="#ffad33"/>
+  </g>
+  <g>
+    <rect x="518" y="140" width="384" height="104" rx="14" fill="url(#bar)" stroke="#d8dde3"/>
+    <circle cx="548" cy="192" r="5" fill="#b8c0c9"/><circle cx="566" cy="192" r="5" fill="#b8c0c9"/><circle cx="584" cy="192" r="5" fill="#b8c0c9"/>
+    <rect x="848" y="153" width="38" height="78" rx="11" fill="#dce1e7"/>
+    <rect x="855" y="162" width="24" height="60" rx="6" fill="#20242a"/>
+    <path d="M867 171 L859.5 181 H874.5 Z" fill="#d4dbe3"/>
+    <rect x="859.5" y="184" width="15" height="3.2" rx="1.5" fill="#d4dbe3"/>
+  </g>
+  <text x="250" y="278" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" fill="#58636f">Янтарный символ на тёмном фоне / Amber mark on dark tile</text>
+  <text x="710" y="278" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" fill="#58636f">Светло-серый символ на тёмном фоне / Light gray mark on dark tile</text>
+</svg>

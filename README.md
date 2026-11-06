@@ -5,6 +5,8 @@
 <a id="english"></a>
 ## English
 
+![Quick Eject icon in the macOS menu bar: amber with an external disk connected, light gray when none are connected](docs/images/menu-bar-states.svg)
+
 Quick Eject is a small macOS menu bar utility for safely ejecting external disks after an explicit confirmation.
 
 ### Features
@@ -51,6 +53,8 @@ MIT. See [LICENSE](LICENSE).
 
 <a id="русский"></a>
 ## Русский
+
+![Значок Quick Eject в строке меню macOS: янтарный при подключённом внешнем диске и светло-серый, когда дисков нет](docs/images/menu-bar-states.svg)
 
 Quick Eject — небольшая утилита для строки меню macOS. Она безопасно извлекает внешние диски только после подтверждения пользователя.
 
