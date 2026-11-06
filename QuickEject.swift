@@ -6,9 +6,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusItem = NSStatusBar.system.statusItem(withLength: 24)
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "eject.fill", accessibilityDescription: "Отключить внешние диски")
+            button.imagePosition = .imageOnly
+            button.imageScaling = .scaleProportionallyUpOrDown
             button.toolTip = "Левый клик: отключить диски · правый клик: меню"
             button.target = self
             button.action = #selector(statusItemClicked(_:))
@@ -36,11 +37,31 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let disks = externalVolumes()
         guard let button = statusItem.button else { return }
         let hasExternalDisks = !disks.isEmpty
-        if let image = NSImage(systemSymbolName: "eject.fill", accessibilityDescription: hasExternalDisks ? "Подключены внешние диски" : "Внешних дисков нет") {
-            image.isTemplate = false
-            button.image = image
+        let accessibilityDescription = hasExternalDisks ? "Подключены внешние диски" : "Внешних дисков нет"
+        let glyphColor = hasExternalDisks
+            ? NSColor(calibratedRed: 1.0, green: 0.68, blue: 0.20, alpha: 1.0)
+            : NSColor(calibratedRed: 0.83, green: 0.86, blue: 0.90, alpha: 1.0)
+        let icon = NSImage(size: NSSize(width: 24, height: 22), flipped: false) { rect in
+            let background = NSBezierPath(roundedRect: NSRect(x: 1.5, y: 1.0, width: 21, height: 20), xRadius: 5, yRadius: 5)
+            NSColor(calibratedRed: 0.20, green: 0.22, blue: 0.25, alpha: 1.0).setFill()
+            background.fill()
+
+            let triangle = NSBezierPath()
+            triangle.move(to: NSPoint(x: 12, y: 16.5))
+            triangle.line(to: NSPoint(x: 5.2, y: 8.2))
+            triangle.line(to: NSPoint(x: 18.8, y: 8.2))
+            triangle.close()
+            glyphColor.setFill()
+            triangle.fill()
+
+            let bar = NSBezierPath(roundedRect: NSRect(x: 5.0, y: 4.0, width: 14.0, height: 2.5), xRadius: 1.0, yRadius: 1.0)
+            glyphColor.setFill()
+            bar.fill()
+            return true
         }
-        button.contentTintColor = hasExternalDisks ? .systemGreen : .secondaryLabelColor
+        icon.accessibilityDescription = accessibilityDescription
+        button.image = icon
+        button.contentTintColor = nil
         button.toolTip = hasExternalDisks
             ? "Подключено внешних дисков: \(disks.count) · Левый клик: отключить · правый: меню"
             : "Внешних дисков нет · Левый клик: отключить · правый: меню"

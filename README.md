@@ -11,7 +11,7 @@ Quick Eject is a small macOS menu bar utility for safely ejecting external disks
 
 - **Left-click** the menu bar icon to review mounted external volumes and confirm ejection.
 - **Right-click** the icon to open the app menu.
-- The icon is colored when external disks are mounted and gray when none are connected; it updates when disks are mounted or ejected.
+- The icon has a dark rounded background for visibility. Its eject mark is amber when external disks are mounted and light gray when none are connected; it updates when disks are mounted or ejected.
 - Uses macOS `NSWorkspace` safe unmount and eject API.
 - Detects fixed external USB drives as well as removable media.
 - Does not run shell commands or require administrator privileges.
@@ -58,7 +58,7 @@ Quick Eject — небольшая утилита для строки меню m
 
 - **Левый клик** по значку показывает подключённые внешние тома и запрос подтверждения.
 - **Правый клик** открывает меню приложения.
-- Значок цветной, когда подключены внешние диски, и серый, когда дисков нет; состояние обновляется при подключении и извлечении дисков.
+- У значка тёмный скруглённый фон, чтобы он был заметен на строке меню. Символ извлечения янтарный при подключённых внешних дисках и светло-серый, когда их нет; состояние обновляется при подключении и извлечении дисков.
 - Для безопасного отключения используется системный API macOS `NSWorkspace`.
 - Поддерживаются внешние USB-диски с фиксированным носителем и съёмные носители.
 - Приложение не запускает команды оболочки и не требует прав администратора.
