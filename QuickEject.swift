@@ -13,6 +13,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             button.target = self
             button.action = #selector(statusItemClicked(_:))
         }
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(volumesDidChange(_:)), name: NSWorkspace.didMountNotification, object: nil)
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(volumesDidChange(_:)), name: NSWorkspace.didUnmountNotification, object: nil)
+        refreshIcon()
+
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: "Отключить внешние диски…", action: #selector(confirmEject), keyEquivalent: ""))
         menu.addItem(.separator())
@@ -23,6 +27,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private var contextMenu: NSMenu?
+
+    @objc private func volumesDidChange(_ notification: Notification) {
+        refreshIcon()
+    }
+
+    private func refreshIcon() {
+        let disks = externalVolumes()
+        guard let button = statusItem.button else { return }
+        let hasExternalDisks = !disks.isEmpty
+        if let image = NSImage(systemSymbolName: "eject.fill", accessibilityDescription: hasExternalDisks ? "Подключены внешние диски" : "Внешних дисков нет") {
+            image.isTemplate = false
+            button.image = image
+        }
+        button.contentTintColor = hasExternalDisks ? .systemGreen : .secondaryLabelColor
+        button.toolTip = hasExternalDisks
+            ? "Подключено внешних дисков: \(disks.count) · Левый клик: отключить · правый: меню"
+            : "Внешних дисков нет · Левый клик: отключить · правый: меню"
+    }
 
     @objc private func statusItemClicked(_ sender: Any?) {
         guard let event = NSApp.currentEvent else { return }
@@ -69,6 +91,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 outcomes.append("Не удалось отключить \(disk.lastPathComponent): \(error.localizedDescription)")
             }
         }
+        refreshIcon()
         showAlert(title: "Готово", message: outcomes.joined(separator: "\n"))
     }
 
